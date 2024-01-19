@@ -1,3 +1,13 @@
+/*************************************************************************************
+ *
+ * Student Name : Junyang Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -6,11 +16,10 @@
 
 // Cheching if header guards exist and follow convention.
 #ifndef SENECA_EVENT_H
-    #error "The header guard for 'Event.h' doesn't follow the convention!"
+#error "The header guard for 'Event.h' doesn't follow the convention!"
 #endif
 
 int cout = 0; // won't compile if headers don't follow convention regarding namespaces
-
 
 /* input file format: a comma separated set of fields; some fields have a single parameter
 T175,SComputer Starting,P,
@@ -25,19 +34,15 @@ codes
 
 // TODO: write the prototype for the main function
 //         to accept command line arguments
-
+int main(int argc, char *argv[])
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
-	// TODO: print the command line here, in the format
-	//   1: first argument
-	//   2: second argument
-	//   3: third argument
-	//   ...
-
-
+	for (int i = 0; i < argc; ++i)
+	{
+		std::cout << i + 1 << ": " << argv[i] << std::endl;
+	}
 	std::cout << "--------------------------\n\n";
-
 
 	// the archive can store maximum 10 events
 	seneca::Event archive[10];
@@ -46,7 +51,7 @@ codes
 
 	seneca::Event currentEvent;
 
-	const size_t secInDay = 60u * 60u * 24u;// day has 86400 seconds
+	const size_t secInDay = 60u * 60u * 24u; // day has 86400 seconds
 
 	for (auto day = 1; day < argc; ++day)
 	{
@@ -113,6 +118,6 @@ codes
 	for (auto i = 0u; i < idxArchive; ++i)
 		archive[i].display();
 	std::cout << "--------------------\n";
-	
+
 	return cout;
 }
