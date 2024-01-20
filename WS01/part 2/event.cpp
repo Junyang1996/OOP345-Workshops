@@ -3,6 +3,8 @@
  * Student Name : Lawrence Wan
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
+ * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Jan 19, 2024
  *
  * I have done all the coding by myself and only copied the code that my professor
  * provided to complete my workshops and assignments.
@@ -66,11 +68,11 @@ namespace seneca
     {
         // a query that displays to the screen the content of an Event instance in the following format:
         // COUNTER. HH:MM:SS => DESCRIPTION
-        // int total_seconds = g_sysClock - event_starts;
-        int hr = event_starts / 3600;
-        event_starts %= 3600; // discard the hour
-        int min = event_starts / 60;
-        int sec = event_starts % 60;
+        int total_seconds = event_starts;
+        int hr = total_seconds / 3600;
+        total_seconds %= 3600; // discard the hour
+        int min = total_seconds / 60;
+        int sec = total_seconds % 60;
         if (des == nullptr || des[0] == '\0')
         {
             cout << setw(2) << setfill(' ') << ++counter

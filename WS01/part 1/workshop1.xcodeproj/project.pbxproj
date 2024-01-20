@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39B685FC2B5A4CE800073C2A /* event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B685F52B5A4CE800073C2A /* event.cpp */; };
-		39B685FD2B5A4CE800073C2A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B685F72B5A4CE800073C2A /* main.cpp */; };
+		39CDBDD22B5B492E00B19409 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39CDBDD12B5B492E00B19409 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,11 +28,11 @@
 		39B685F42B5A4CE800073C2A /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
 		39B685F52B5A4CE800073C2A /* event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = event.cpp; sourceTree = "<group>"; };
 		39B685F62B5A4CE800073C2A /* sample_output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_output.txt; sourceTree = "<group>"; };
-		39B685F72B5A4CE800073C2A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		39B685F82B5A4CE800073C2A /* monday.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = monday.txt; sourceTree = "<group>"; };
 		39B685F92B5A4CE800073C2A /* tuesday.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tuesday.txt; sourceTree = "<group>"; };
 		39B685FA2B5A4CE800073C2A /* ws */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = ws; sourceTree = "<group>"; };
 		39B685FB2B5A4CE800073C2A /* ws.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ws.dSYM; sourceTree = "<group>"; };
+		39CDBDD12B5B492E00B19409 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,9 +49,9 @@
 		39B685CA2B5A4B4500073C2A = {
 			isa = PBXGroup;
 			children = (
+				39CDBDD12B5B492E00B19409 /* main.cpp */,
 				39B685F52B5A4CE800073C2A /* event.cpp */,
 				39B685F42B5A4CE800073C2A /* event.h */,
-				39B685F72B5A4CE800073C2A /* main.cpp */,
 				39B685F82B5A4CE800073C2A /* monday.txt */,
 				39B685F62B5A4CE800073C2A /* sample_output.txt */,
 				39B685F92B5A4CE800073C2A /* tuesday.txt */,
@@ -126,8 +126,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CDBDD22B5B492E00B19409 /* main.cpp in Sources */,
 				39B685FC2B5A4CE800073C2A /* event.cpp in Sources */,
-				39B685FD2B5A4CE800073C2A /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

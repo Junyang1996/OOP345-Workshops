@@ -1,0 +1,17 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+* Seneca Email: jwan27@myseneca.ca
+ * Completion date: Jan 19, 2024
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+In this week's exploration of C++ programming concepts, we delved into static types, command line arguments, and the utilization of unsigned integers. The nuanced distinction between local static variables and their global counterparts became apparent, highlighting the significance of confined scope within functions, a crucial consideration in code design.
+
+Command line arguments seamlessly integrated into our workflow, particularly during manual compilation. Notably, the display of "./ws" as the first argument prompted reflection on the intricacies of command execution, emphasizing the importance of command-line nuances versus integrated development environment (IDE) execution methods.
+
+The incorporation of unsigned integers proved insightful, aligning with the nature of the task's temporal requirements. The deliberate use of unsigned integers for positive values not only enhances code elegance but also contributes to a more transparent representation of time-related variables. 

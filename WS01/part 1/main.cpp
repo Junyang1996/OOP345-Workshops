@@ -1,6 +1,6 @@
 /*************************************************************************************
  *
- * Student Name : Junyang Wan
+ * Student Name : Lawrence Wan
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  *
