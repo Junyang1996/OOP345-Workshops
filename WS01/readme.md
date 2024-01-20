@@ -108,7 +108,7 @@ The `Event` module defines a system clock, as a global variable named `g_sysCloc
 
 
 
-This module also defines a class named `Event` in the namespace `sdds` that stores some information about an event:
+This module also defines a class named `Event` in the namespace `seneca` that stores some information about an event:
 
 - a C-style null-terminated string of up to 128 characters *including the null byte terminator* representing the description of the event.
 
