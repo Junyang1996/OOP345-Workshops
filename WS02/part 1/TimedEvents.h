@@ -31,7 +31,7 @@ namespace seneca
         static int numRecords;
         time startTime;
         time endTime;
-        Event *event;
+        Event *event = nullptr;
 
     public:
         TimedEvents();

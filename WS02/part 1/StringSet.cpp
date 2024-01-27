@@ -34,8 +34,59 @@ namespace seneca
             str = new string[numOfstring];
             // reset the file pointer
             file.clear();
-            // move the pointer to the beginning
+            // re-reads the file and loads the strings into the array. Move the file pointer to the beginning of the file
             file.seekg(0, ios::beg);
+            for (auto i = 0u; i < numOfstring; i++)
+            {
+                getline(file, str[i], ' ');
+            }
+        }
+        else
+        {
+            cerr << "ERROR: Cannot open file [" << file_name << "].\n";
+        }
+    }
+    StringSet::~StringSet()
+    {
+        if (str != nullptr)
+            delete[] str;
+        str = nullptr;
+    }
+    StringSet::StringSet(const StringSet &other)
+    {
+        *this = other;
+    }
+    StringSet &StringSet::operator=(const StringSet &other)
+    {
+        if (this != &other)
+        {
+            numOfstring = other.numOfstring;
+            // delete the old array
+            if (str != nullptr)
+                delete[] str;
+            // allocate memory for the new array
+            str = new string[numOfstring];
+            for (auto i = 0u; i < numOfstring; i++)
+            {
+                str[i] = other.str[i];
+            }
+        }
+        return *this;
+    }
+
+    size_t StringSet::size() const
+    {
+        return numOfstring;
+    }
+    string StringSet::operator[](size_t index) const
+    {
+        if (index < numOfstring && index >= 0)
+        {
+            return str[index];
+        }
+        else
+        {
+            return "";
         }
     }
 

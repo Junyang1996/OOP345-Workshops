@@ -20,12 +20,15 @@ namespace seneca
     {
     private:
         size_t numOfstring = 0;
-        std::string *str;
+        std::string *str = nullptr;
 
     public:
         StringSet();
         StringSet(const char *);
+        // rule of 3
         ~StringSet();
+        StringSet(const StringSet &);
+        StringSet &operator=(const StringSet &);
         size_t size() const;
         std::string operator[](size_t) const;
     };
