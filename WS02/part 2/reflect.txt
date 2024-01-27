@@ -1,0 +1,18 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Jan 27, 2024
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+ This week we mainly foccused on copy and move semantics, using command line argument for inputting text file, and understanding what is lvalue and rvalue. 
+
+ First for inputting text file via command line argument, I found the key to understanding file input is to think of feeding a set of string into the buffer until the delimiter or end of file. Therefore, I used getline(), which serves this purpose well, and easier for me to understand. Once I have the total number of the string, I rewinded the file ptr to the beginning of the file, and since rewind is only in C, I used file.seekg(0, ios::beg) which is the c++ equivalent of rewind(). This function will seek and get the pointer to the beginning positon of 0.
+
+ There's a newly introduced library chrono we used in this assignment, we used the system_clock at ws1, 
+
