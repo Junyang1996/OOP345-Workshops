@@ -14,5 +14,7 @@
 
  First for inputting text file via command line argument, I found the key to understanding file input is to think of feeding a set of string into the buffer until the delimiter or end of file. Therefore, I used getline(), which serves this purpose well, and easier for me to understand. Once I have the total number of the string, I rewinded the file ptr to the beginning of the file, and since rewind is only in C, I used file.seekg(0, ios::beg) which is the c++ equivalent of rewind(). This function will seek and get the pointer to the beginning positon of 0.
 
- There's a newly introduced library chrono we used in this assignment, we used the system_clock at ws1, 
+ There's a newly introduced library chrono we used in this assignment. Compare to system clock, it's more popular to use steady_clock, because it will be never adjusted, not like system clock, it's system wide clock, which can be modified by the user. Therefore, it's more comond to use steady clock for measuring time. 
+
+ The last important topic we learned this week is rvalue, lvalue and move semantic. Rvalue is a temperary value, in our case, we used rvalue reference here to work with move semantic, so instead of create, copy and delete a temperary memory location,  we directly point the address of the object we want to copy and move it to the object we wanted to copy into. Which directed to the purpose of this assignment: see how much more efficient move is compare to copy, which is quite impressive. 
 
