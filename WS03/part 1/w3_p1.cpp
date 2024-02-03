@@ -5,7 +5,7 @@
 
 int cout = 0; // won't compile if headers don't follow convention
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -14,8 +14,8 @@ int main(int argc, char** argv)
 	std::cout << "--------------------------\n\n";
 
 	// Data to be used by the template classes
-	long   iData[]{    16,    12,     9,      3,    21,    12, 23 };
-	double dData[]{ 1.222, 5.777, 1.223, 51.333, 8.888, 1.221 };
+	long iData[]{16, 12, 9, 3, 21, 12, 23};
+	double dData[]{1.222, 5.777, 1.223, 51.333, 8.888, 1.221};
 	seneca::Pair pData[]{
 		seneca::Pair("static memory", "memory allocated during the compilation time"),
 		seneca::Pair("programmer", "a person who writes code"),
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
 		std::cout << "******************************************************\n";
 		seneca::Collection<long, 20> colIntegers;
 
-		for (const auto& item : iData)
+		for (const auto &item : iData)
 			colIntegers.add(item);
 
 		std::cout << "Collection size: [" << colIntegers.size() << "]\n";
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
 		std::cout << "******************************************************\n";
 		seneca::Collection<double, 30> colFloats;
 
-		for (const auto& item : dData)
+		for (const auto &item : dData)
 			colFloats.add(item);
 
 		std::cout << "Collection size: [" << colFloats.size() << "]\n";
@@ -70,18 +70,18 @@ int main(int argc, char** argv)
 		std::cout << "******************************************************\n";
 		seneca::Collection<seneca::Pair, 50> colDictionary;
 
-		for (const auto& item : pData)
+		for (const auto &item : pData)
 			colDictionary.add(item);
 
 		std::cout << "Collection size: [" << colDictionary.size() << "]\n";
 		colDictionary.display();
 
-		std::cout << "Item [0]: [" << colDictionary[0].getKey()   << "]["
-		                           << colDictionary[0].getValue() << "]\n";
-		std::cout << "Item [8]: [" << colDictionary[8].getKey()   << "]["
-		                           << colDictionary[8].getValue() << "]\n";
-		std::cout << "Item [9]: [" << colDictionary[9].getKey()   << "]["
-		                           << colDictionary[9].getValue() << "]\n";
+		std::cout << "Item [0]: [" << colDictionary[0].getKey() << "]["
+				  << colDictionary[0].getValue() << "]\n";
+		std::cout << "Item [8]: [" << colDictionary[8].getKey() << "]["
+				  << colDictionary[8].getValue() << "]\n";
+		std::cout << "Item [9]: [" << colDictionary[9].getKey() << "]["
+				  << colDictionary[9].getValue() << "]\n";
 		std::cout << "******************************************************\n\n";
 	}
 
