@@ -12,7 +12,7 @@
  *
  **************************************************************************************/
 #ifndef SENECA_COLLECTION_H
-#define SENECA_Collection_H
+#define SENECA_COLLECTION_H
 #include <iostream>
 namespace seneca
 {
@@ -25,23 +25,32 @@ namespace seneca
     {
         // Class Members
         T arr[CAPACITY] = {};
-        unsigned int num_elements;
+        unsigned int num_elements = 0u;
         // An object of type T (a dummy object). This object will be returned by member-functions when the client requests an object that is not in the collection.
-        T dummy;
+        T dummy = T{};
 
     public:
         Collection(T * = nullptr, unsigned int num = 0u);
-        Collection(Collection &other);
-        Collection &operator=(Collection &other);
-        ~Collection();
+        Collection(const Collection &other);
+        Collection &operator=(const Collection &other);
+        // ~Collection();
+        ~Collection()
+        {
+            for (int i = 0; i < CAPACITY; i++)
+            {
+                arr[i] = T{};
+            }
+            num_elements = 0u;
+        }
         // size(): a query that returns the current number of elements in the collection
-        unsigned int size();
+        // unsigned int size() const;
+        unsigned int size() const { return num_elements; }
         // display(): a query that receives as the parameter an output stream (with default value std::cout) and inserts into the stream all items from the collection (see the sample output for formatting hints).
-        std::ostream &display(std::ostream &os = std::cout);
+        std::ostream &display(std::ostream &os = std::cout) const;
         // bool add(const T& item): a mutator that adds a copy of the parameter to the collection if there still is capacity. If the item has been added, this function return true; false otherwise.
         bool add(const T &item);
         // operator[]: a query that receives an index as parameter and returns a copy of the element stored in the collection at the specified index. If the index is not valid (outside the boundaries of the collection), this query returns the dummy object.
-        T &operator[int index];
+        T operator[](int index) const;
         // Add any other private members that your design requires (without changing the specs above)!
     };
 
@@ -61,9 +70,99 @@ namespace seneca
         unsigned int size();
         std::ostream &display(std::ostream &os = std::cout);
         bool add(const Pair &item);
-        Pair &operator[](int index);
+        Pair operator[](int index) const;
     };
+    template <typename T, int CAPACITY>
+    Collection<T, CAPACITY>::Collection(T _arr[], unsigned int _num) : dummy{}
+    {
+        for (auto i = 0; i < _num && i < CAPACITY; ++i)
+        {
+            arr[i] = _arr[i];
+        }
+        num_elements = _num;
+    }
 
+    template <typename T, int CAPACITY>
+    Collection<T, CAPACITY>::Collection(const Collection<T, CAPACITY> &other)
+    {
+        for (auto i = 0; i < other.num_elements && i < CAPACITY; ++i)
+        {
+            arr[i] = other.arr[i];
+        }
+        num_elements = other.num_elements;
+    }
+
+    template <typename T, int CAPACITY>
+    Collection<T, CAPACITY> &Collection<T, CAPACITY>::operator=(const Collection<T, CAPACITY> &other)
+    {
+        if (this != &other)
+        {
+            for (auto i = 0; i < other.num_elements && i < CAPACITY; ++i)
+            {
+                arr[i] = other.arr[i];
+            }
+            num_elements = other.num_elements;
+        }
+        return *this;
+    }
+
+    // display(): a query that receives as the parameter an output stream (with default value std::cout) and inserts into the stream all items from the collection (see the sample output for formatting hints).
+    template <typename T, int CAPACITY>
+    std::ostream &Collection<T, CAPACITY>::display(std::ostream &os) const
+    {
+        os << "----------------------\n"
+              "| Collection Content |\n"
+              "----------------------\n";
+        for (auto i = 0u; i < num_elements; i++)
+        {
+            os << arr[i] << std::endl;
+        }
+        return os;
+    }
+    // bool add(const T& item): a mutator that adds a copy of the parameter to the collection if there still is capacity. If the item has been added, this function return true; false otherwise.
+    template <typename T, int CAPACITY>
+    bool Collection<T, CAPACITY>::add(const T &item)
+    {
+        bool answer = false;
+        for (const auto &element : arr)
+        {
+            if (element == item)
+            {
+                answer = false;
+            }
+        }
+        // if the num of elem is larget than the capacity,
+        //  it will return false,
+        //  if its smaller add the item num of elem+1 if its the same sized,
+        //  just add it up
+        if (num_elements > CAPACITY)
+        {
+            answer = false;
+        }
+        else if (num_elements < CAPACITY)
+        {
+            arr[num_elements] = item;
+            num_elements++;
+            answer = true;
+        }
+        else
+        {
+            arr[num_elements] = item;
+            answer = true;
+        }
+
+        return answer;
+    }
+
+    // operator[]: a query that receives an index as parameter and returns a copy of the element stored in the collection at the specified index. If the index is not valid (outside the boundaries of the collection), this query returns the dummy object.
+    template <typename T, int CAPACITY>
+    T Collection<T, CAPACITY>::operator[](int index) const
+    {
+        if (index > CAPACITY)
+            return dummy;
+        else
+            return arr[index];
+    }
 }
 
-#endif //! collection_h
+#endif //! COLLECTION_H

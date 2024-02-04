@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "*.py": "python",
-    "ratio": "cpp"
+    "ratio": "cpp",
+    "iostream": "cpp"
   }
 }

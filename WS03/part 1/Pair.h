@@ -30,6 +30,6 @@ namespace seneca
         //           that are necessary if this class is to be used
         //           with the template classes described below.
         //       Implement them in the Pair.cpp file.
-    };
+        };
 }
 #endif
