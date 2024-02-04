@@ -23,6 +23,7 @@ namespace seneca
     class Set : public Collection<T, 100>
     {
     public:
+        Set(T *arr = nullptr, unsigned int size = 0) : Collection<T, 100>(arr, size){};
         bool add(const T &item) override
         {
             for (auto i = 0u; i < Collection<T, 100>::size(); i++)
@@ -35,15 +36,15 @@ namespace seneca
 
             return Collection<T, 100>::add(item);
         }
-        ~Set(){}
+        ~Set() {}
     };
 
-    template<>
-    bool Set<double>::add(const double& item)
+    template <>
+    bool Set<double>::add(const double &item)
     {
         for (auto i = 0u; i < Collection<double, 100>::size(); i++)
         {
-            if ((std::fabs(operator[](i)-item)<= 0.01))
+            if ((std::fabs(operator[](i) - item) <= 0.01))
             {
                 return false;
             }

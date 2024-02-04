@@ -17,6 +17,7 @@
 #include "Pair.h"
 namespace seneca
 {
+    const int SPECIAL_CAPACITY = 100;
 
     // T: the type of any element in the collection
     // CAPACITY: the capacity of the collection (a non-type parameter; an integer without sign). This is the maximum number of elements that can be added to the collection
@@ -150,31 +151,110 @@ namespace seneca
 
     // Specialize the dummy object when type T = Pair and CAPACITY = 100 so the key is "No Key" and the value is "No Value".
     template <>
-    class Collection<Pair, 100>
+    class Collection<Pair, SPECIAL_CAPACITY>
     {
-        Pair arr[100];
+        Pair arr[SPECIAL_CAPACITY];
         Pair dummy{"No Key", "No Value"};
-        unsigned int num_elements;
+        unsigned int num_elements = 0;
 
     public:
-        Collection(Pair * = nullptr, unsigned int num = 0u);
-        Collection(Collection &other);
-        Collection &operator=(Collection &other);
-        ~Collection();
-        unsigned int size();
-        std::ostream &display(std::ostream &os = std::cout);
-        virtual bool add(const Pair &item);
-        Pair operator[](int index);
-    };
-    // Pair Collection<Pair, 100>::operator[](int index) const
-    // {
-    //     dummy = Pair("No Key", "No Value");
-    //     if (index > 100)
-    //         return dummy;
-    //     else
-    //         return arr[index];
-    // }
+        Collection(Pair *arr = nullptr, unsigned int num = 0u)
+        {
+            // If arr is not null, copy the elements to this collection
+            if (arr != nullptr)
+            {
+                for (unsigned int i = 0; i < num && i < 100; ++i)
+                {
+                    this->arr[i] = arr[i];
+                }
+            }
+            // Set the number of elements
+            this->num_elements = num;
+        }
+        Collection(Collection &other)
+        {
+            for (auto i = 0u; i < other.num_elements && i < SPECIAL_CAPACITY; ++i)
+            {
+                arr[i] = other.arr[i];
+            }
+            num_elements = other.num_elements;
+        }
+        Collection &operator=(Collection &other)
+        {
+            if (this != &other)
+            {
+                for (auto i = 0; i < other.num_elements && i < SPECIAL_CAPACITY; ++i)
+                {
+                    arr[i] = other.arr[i];
+                }
+                num_elements = other.num_elements;
+            }
+            return *this;
+        }
 
+        virtual ~Collection()
+        {
+            for (int i = 0; i < SPECIAL_CAPACITY; i++)
+            {
+                arr[i] = Pair{};
+            }
+            num_elements = 0u;
+        }
+
+        unsigned int size() const { return num_elements; }
+        std::ostream &display(std::ostream &os = std::cout) const
+        {
+            os << "----------------------\n"
+                  "| Collection Content |\n"
+                  "----------------------\n";
+            for (auto i = 0u; i < num_elements; i++)
+            {
+                os << arr[i] << std::endl;
+            }
+            os << "----------------------\n";
+            return os;
+        }
+
+        virtual bool add(const Pair &item)
+        {
+            bool answer = false;
+            for (const auto &element : arr)
+            {
+                if (element == item)
+                {
+                    answer = false;
+                }
+            }
+            // if the num of elem is larget than the capacity,
+            //  it will return false,
+            //  if its smaller add the item num of elem+1 if its the same sized,
+            //  just add it up
+            if (num_elements > SPECIAL_CAPACITY)
+            {
+                answer = false;
+            }
+            else if (num_elements < SPECIAL_CAPACITY)
+            {
+                arr[num_elements] = item;
+                num_elements++;
+                answer = true;
+            }
+            else
+            {
+                arr[num_elements] = item;
+                answer = true;
+            }
+
+            return answer;
+        }
+        Pair operator[](int index) const
+        {
+            if (index > num_elements)
+                return dummy;
+            else
+                return arr[index];
+        }
+    };
 }
 
 #endif //! COLLECTION_H

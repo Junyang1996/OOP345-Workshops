@@ -38,7 +38,8 @@ namespace seneca
 
         bool operator==(const Pair &other) const
         {
-            return (m_key == other.m_key && m_value == other.m_value);
+            return (m_key == other.m_key);
+            // && m_value == other.m_value
         }
 
         friend std::ostream &operator<<(std::ostream &os, const Pair &pair)
