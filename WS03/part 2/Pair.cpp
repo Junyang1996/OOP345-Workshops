@@ -5,7 +5,7 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Jan 26, 2024
+ * Completion date: 02 04, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
@@ -34,5 +34,10 @@ namespace seneca
     {
         m_key = "";
         m_value = "";
+    }
+    ostream &operator<<(ostream &os, const Pair &pair)
+    {
+        os << setw(20) << right << pair.m_key << ": " << pair.m_value;
+        return os;
     }
 }

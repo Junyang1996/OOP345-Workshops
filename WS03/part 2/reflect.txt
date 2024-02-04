@@ -1,0 +1,23 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Feb 4, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+
+This week we focused on template, mainly template class in this workshop.
+
+The first thing i took from the workshop is we need to implement the class that match every requirement of the template. For example, beside the rule of 3, we also will have to overload "==" and "<<" operator in order to use the template we defined later, the collection and set template. 
+
+The other is override keyword, we used that in the set function, with the override keyword we can make sure it is the correct function to be called, this is essential in template environment, because it's more clear and easier to maintain, for example, with the override function, we can catch any errors  from both the override function and the overridden function in the compile time.
+
+Specialization is different from override, first and formost is that it can be manipulated by the specific types we specialized. Furthermore, template specialization is chosen based on the type we specialized at compile time compare to override is by the runtime. 
+
+Lastly, the reason there's no need for cpp file when defining template is similar reason above, because the using of template happens at the compile time, which is before linking. So in order for the module to use the template, all the template definition has to be in the header file.

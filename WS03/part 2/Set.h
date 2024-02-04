@@ -4,7 +4,7 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Jan 26, 2024
+ * Completion date: Feb 4, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
@@ -20,21 +20,21 @@
 namespace seneca
 {
     template <typename T>
-    class Set : public Collection<T, 100>
+    class Set : public Collection<T, SPECIAL_CAPACITY>
     {
     public:
-        Set(T *arr = nullptr, unsigned int size = 0) : Collection<T, 100>(arr, size){};
+        Set(T *arr = nullptr, unsigned int size = 0) : Collection<T, SPECIAL_CAPACITY>(arr, size){};
         bool add(const T &item) override
         {
-            for (auto i = 0u; i < Collection<T, 100>::size(); i++)
+            for (auto i = 0u; i < Collection<T, SPECIAL_CAPACITY>::size(); i++)
             {
-                if (Collection<T, 100>::operator[](i) == item)
+                if (Collection<T, SPECIAL_CAPACITY>::operator[](i) == item)
                 {
                     return false;
                 }
             }
 
-            return Collection<T, 100>::add(item);
+            return Collection<T, SPECIAL_CAPACITY>::add(item);
         }
         ~Set() {}
     };
@@ -42,7 +42,7 @@ namespace seneca
     template <>
     bool Set<double>::add(const double &item)
     {
-        for (auto i = 0u; i < Collection<double, 100>::size(); i++)
+        for (auto i = 0u; i < Collection<double, SPECIAL_CAPACITY>::size(); i++)
         {
             if ((std::fabs(operator[](i) - item) <= 0.01))
             {
@@ -50,7 +50,7 @@ namespace seneca
             }
         }
 
-        return Collection<double, 100>::add(item);
+        return Collection<double, SPECIAL_CAPACITY>::add(item);
     }
 
 }

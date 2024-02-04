@@ -36,17 +36,14 @@ namespace seneca
         Pair &operator=(const Pair &other);
         ~Pair();
 
-        bool operator==(const Pair &other) const
-        {
-            return (m_key == other.m_key);
-            // && m_value == other.m_value
-        }
+        bool operator==(const Pair &other) const { return (m_key == other.m_key); }
+        // && m_value == other.m_value
 
-        friend std::ostream &operator<<(std::ostream &os, const Pair &pair)
-        {
-            os << std::setw(20) << std::right << pair.m_key << ": " << pair.m_value;
-            return os;
-        }
+        friend std::ostream &operator<<(std::ostream &os, const Pair &pair);
+        // {
+        //     os << std::setw(20) << std::right << pair.m_key << ": " << pair.m_value;
+        //     return os;
+        // }
     };
 }
 #endif //! SENECA_PAIR_H
