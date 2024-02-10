@@ -8,7 +8,7 @@
 
 int cout = 0; // won't compile if headers don't follow convention
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -16,11 +16,12 @@ int main(int argc, char** argv)
 		std::cout << std::setw(3) << i + 1 << ": " << argv[i] << '\n';
 	std::cout << "--------------------------\n";
 
-	seneca::Toy** ppToys = nullptr;
+	seneca::Toy **ppToys = nullptr;
 	size_t cnt = 0;
 
 	// Process the file
-	if (argc > 1) {
+	if (argc > 1)
+	{
 		std::ifstream file(argv[1]);
 		if (!file)
 		{
@@ -45,7 +46,7 @@ int main(int argc, char** argv)
 			}
 		} while (file);
 
-		ppToys = new seneca::Toy * [cnt];
+		ppToys = new seneca::Toy *[cnt];
 		cnt = 0;
 
 		// read again from the file, but this time load and store data
