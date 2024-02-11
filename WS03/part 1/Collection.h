@@ -14,6 +14,7 @@
 #ifndef SENECA_COLLECTION_H
 #define SENECA_COLLECTION_H
 #include <iostream>
+#include "Pair.h"
 namespace seneca
 {
 
@@ -24,8 +25,8 @@ namespace seneca
     // Your design keeps track of the current number of elements stored in the collection (which may differ from the capacity of the collection). Initially the collection has no elements.
     {
         // Class Members
-        T arr[CAPACITY] = {};
         unsigned int num_elements = 0u;
+        T arr[CAPACITY] = {};
         // An object of type T (a dummy object). This object will be returned by member-functions when the client requests an object that is not in the collection.
         T dummy = T{};
 
@@ -75,7 +76,7 @@ namespace seneca
     template <typename T, int CAPACITY>
     Collection<T, CAPACITY>::Collection(T _arr[], unsigned int _num) : dummy{}
     {
-        for (auto i = 0; i < _num && i < CAPACITY; ++i)
+        for (auto i = 0u; i < _num && i < CAPACITY; ++i)
         {
             arr[i] = _arr[i];
         }
@@ -117,6 +118,7 @@ namespace seneca
         {
             os << arr[i] << std::endl;
         }
+        os << "----------------------\n";
         return os;
     }
     // bool add(const T& item): a mutator that adds a copy of the parameter to the collection if there still is capacity. If the item has been added, this function return true; false otherwise.

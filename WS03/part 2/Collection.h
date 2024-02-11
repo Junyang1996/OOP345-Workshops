@@ -183,7 +183,7 @@ namespace seneca
         {
             if (this != &other)
             {
-                for (auto i = 0; i < other.num_elements && i < SPECIAL_CAPACITY; ++i)
+                for (auto i = 0u; i < other.num_elements && i < SPECIAL_CAPACITY; ++i)
                 {
                     arr[i] = other.arr[i];
                 }
@@ -249,7 +249,7 @@ namespace seneca
         }
         Pair operator[](int index) const
         {
-            if (index > num_elements)
+            if (index > int(num_elements))
                 return dummy;
             else
                 return arr[index];

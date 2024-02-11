@@ -270,3 +270,16 @@ Toy 1000130:       Bike Helmet  1 items   18.99/item  subtotal:  18.99 tax:  2.4
 --------------------------
 ==========================
 
+
+[38;5;9m------------------------
+End Testing the Program![0m
+==102852== 
+==102852== HEAP SUMMARY:
+==102852==     in use at exit: 0 bytes in 0 blocks
+==102852==   total heap usage: 72 allocs, 72 frees, 86,191 bytes allocated
+==102852== 
+==102852== All heap blocks were freed -- no leaks are possible
+==102852== 
+==102852== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Fri 02 Feb 2024 01:47:27 PM EST

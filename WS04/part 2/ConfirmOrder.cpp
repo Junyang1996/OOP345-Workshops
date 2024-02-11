@@ -28,10 +28,12 @@ namespace seneca
     {
         if (this != &co)
         {
-            delete[] toys; // delete the old array
+            // if (toys)
+            //     delete[] toys; // delete the old array
 
-            // create a new array and copy the pointers
-            toys = new const Toy *[co.size];
+            // // create an array and copy the pointers, no need to delete because it's just simply given the length to the pointer
+            // toys = new const Toy *[co.size];
+            toys = co.toys;
             size = co.size;
             for (size_t i = 0; i < size; ++i)
             {
@@ -44,10 +46,11 @@ namespace seneca
     {
         if (this != &co)
         {
-            delete[] toys;
-            toys = new const Toy *[co.size];
+            // delete[] toys;
+            // toys = new const Toy *[co.size];
+            toys = co.toys;
             size = co.size;
-            for (auto i = 0; i < size; ++i)
+            for (auto i = 0u; i < size; ++i)
             {
                 toys[i] = co.toys[i];
             }
@@ -60,7 +63,7 @@ namespace seneca
     ConfirmOrder &ConfirmOrder::operator+=(const Toy &toy)
     {
         bool found = false;
-        for (auto i = 0; i < size; ++i)
+        for (auto i = 0u; i < size; ++i)
         {
             if (&toy == toys[i])
             {
@@ -88,7 +91,7 @@ namespace seneca
     }
     ConfirmOrder &ConfirmOrder::operator-=(const Toy &toy)
     {
-        for (auto i = 0; i < size; ++i)
+        for (auto i = 0u; i < size; ++i)
         {
             if (&toy == toys[i])
             {
@@ -111,7 +114,8 @@ namespace seneca
         {
             for (size_t i = 0; i < confirmOrder.size; ++i)
             {
-                os << *(confirmOrder.toys[i]) << "\n";
+                if (confirmOrder.toys[i] != nullptr)
+                    os << *(confirmOrder.toys[i]);
             }
         }
 

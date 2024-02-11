@@ -22,7 +22,7 @@ namespace seneca
         std::string _name = "";
         int _age = 0;
         // An attribute of type const seneca::Toy** representing the dynamically allocated array of pointers--> aggregation, it does not control the creation of the array
-        const Toy **_toys;
+        const Toy **_toys = nullptr;
         size_t _count = 0;
 
     public:

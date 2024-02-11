@@ -27,10 +27,9 @@ namespace seneca
         ConfirmOrder(ConfirmOrder &&);
         ConfirmOrder &operator=(const ConfirmOrder &);
         ConfirmOrder &operator=(ConfirmOrder &&);
-        ~ConfirmOrder()
-        {
-            delete[] toys;
-            toys = nullptr;
+        ~ConfirmOrder(){
+            // delete[] toys;
+            // toys = nullptr;
         };
         ConfirmOrder &operator+=(const Toy &toy);
         ConfirmOrder &operator-=(const Toy &toy);

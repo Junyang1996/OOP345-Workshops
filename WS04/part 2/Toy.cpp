@@ -55,22 +55,24 @@ namespace seneca
     }
     string trim(const string &str)
     {
-        string output;
-        for (char c : str)
-        {
-            if (c != ' ')
-            {
-                output += c;
-            }
-        }
+        string output = str;
+        // Find the index of the first non-whitespace character
+        size_t firstNonWhitespace = output.find_first_not_of(" \t");
+        // Erase leading whitespace characters
+        output.erase(0, firstNonWhitespace);
+        // Find the index of the last non-whitespace character
+        size_t lastNonWhitespace = output.find_last_not_of(" \t");
+        // Erase trailing whitespace characters
+        if (lastNonWhitespace != string::npos)
+            output.erase(lastNonWhitespace + 1);
         return output;
     }
 
     string extract_string(const string &_str, const char dilimiter)
     {
-        string str = trim(_str);
-        size_t index = str.find(dilimiter); // the id idex
-        return str.substr(0, index);        // store the
+        // string str = trim(_str);
+        size_t index = _str.find(dilimiter); // the id idex
+        return trim(_str.substr(0, index));  // store the
     }
     // use find to find the first :, take it as a int using stoi() stod() for double, repeat it until the end of the string
     // size_t index = toy.find(':'); // the id idex
@@ -104,7 +106,7 @@ namespace seneca
         os << setw(18) << right << toy._m_name;
         os << setw(3) << toy._m_item_number << " items";
         os << setw(8) << toy._m_price;
-        os << " /item subtotal:";
+        os << "/item  subtotal:";
         os << setw(7) << toy._m_price * toy._m_item_number;
         os << " tax:";
         os << setw(6) << std::fixed << std::setprecision(2) << toy._m_hst_percent * toy._m_price * toy._m_item_number;

@@ -21,16 +21,26 @@ namespace seneca
     {
         _name = name;
         _age = age;
-        _toys = toys;
         _count = count;
+
+        _toys = new const Toy *[_count];
+        for (size_t i = 0; i < _count; ++i)
+        {
+            // Create a new copy of each Toy element
+            _toys[i] = new Toy(*toys[i]);
+        }
     }
     Child::Child(const Child &other)
     {
-        // _name = other._name;
-        // _age = other._age;
-        // _toys = other._toys;
-        // _count = other._count;
-        *this = other;
+        _name = other._name;
+        _age = other._age;
+        _count = other._count;
+
+        _toys = new const Toy *[_count];
+        for (size_t i = 0; i < _count; ++i)
+        {
+            _toys[i] = other._toys[i];
+        }
     }
     Child::Child(Child &&other)
     {
@@ -44,14 +54,14 @@ namespace seneca
             _name = other._name;
             _age = other._age;
             _count = other._count;
-
-            delete[] _toys;
+            if (_toys != nullptr)
+                delete[] _toys;
             // create a new array
             _toys = new const Toy *[_count];
             for (size_t i = 0; i < _count; ++i)
             {
                 // copy each pointer
-                _toys[i] = other._toys[i];
+                _toys[i] = new Toy(*other._toys[i]);
             }
         }
         return *this;
@@ -62,18 +72,43 @@ namespace seneca
         {
             _name = std::move(other._name);
             _age = other._age;
-            // delete the old array
-            delete[] _toys;
-            // take ownership of the other array
-            _toys = other._toys;
             _count = other._count;
+
+            // delete the old array
+            if (_toys != nullptr)
+                delete[] _toys;
+
+            // Transfer ownership of the _toys array
+            _toys = other._toys;
+
             // leave the other object in a safe state
             other._toys = nullptr;
+            other._name = "";
+            other._age = 0;
             other._count = 0;
         }
         return *this;
     }
-    Child::~Child() = default;
+    Child::~Child()
+    {
+        _name = "";
+        _age = 0;
+        if (_toys != nullptr)
+        {
+            // delete each copy of the element
+            for (size_t i = 0; i < _count; ++i)
+            {
+                // Create a new copy of each Toy element
+                // if (_toys[i] != nullptr)
+                //     delete[] _toys[i];
+                _toys[i] = nullptr;
+            }
+        }
+        delete[] _toys;
+        _toys = nullptr;
+
+        _count = 0;
+    }
     size_t Child::size() const
     {
         return _count;
@@ -85,19 +120,20 @@ namespace seneca
         {
             os << "--------------------------" << endl
                << "Child " << ++CALL_CNT << ": " << child._name << " " << child._age << " years old:\n"
-               << " --------------------------" << endl
+               << "--------------------------" << endl
                << "This child has no toys!" << endl
-               << "-------------------------\n";
+               << "--------------------------\n";
         }
         else
         {
             os << "--------------------------" << endl
                << "Child " << ++CALL_CNT << ": " << child._name << " " << child._age << " years old:\n"
-               << " --------------------------" << endl;
+               << "--------------------------" << endl;
             for (auto i = 0u; i < child._count; ++i)
             {
                 os << *child._toys[i];
             }
+            os << "--------------------------\n";
         }
         return os;
     }

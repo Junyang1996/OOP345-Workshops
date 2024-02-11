@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 		std::cout << "******************************************************\n";
 		std::cout << "* Testing the Collection of Pairs                    *\n";
 		std::cout << "******************************************************\n";
-		seneca::Collection<seneca::Pair, 50> colDictionary;
+		seneca::Collection<seneca::Pair, 100> colDictionary;
 
 		for (const auto &item : pData)
 			colDictionary.add(item);
