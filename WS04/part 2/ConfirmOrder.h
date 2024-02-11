@@ -18,13 +18,23 @@ namespace seneca
 {
     class ConfirmOrder
     {
-        const seneca::Toy *toys[];
+        const Toy **toys;
+        size_t size;
 
     public:
-        ConfirmOrder();
+        ConfirmOrder() : toys(nullptr), size(0){};
+        ConfirmOrder(const ConfirmOrder &);
+        ConfirmOrder(ConfirmOrder &&);
+        ConfirmOrder &operator=(const ConfirmOrder &);
+        ConfirmOrder &operator=(ConfirmOrder &&);
+        ~ConfirmOrder()
+        {
+            delete[] toys;
+            toys = nullptr;
+        };
         ConfirmOrder &operator+=(const Toy &toy);
         ConfirmOrder &operator-=(const Toy &toy);
-        friend std::ostream operator<<(std::ostream &os, ConfirmOrder &ConfirmOrder);
+        friend std::ostream &operator<<(std::ostream &os, ConfirmOrder &ConfirmOrder);
     };
 }
 #endif //! SENECA_CONFIRMORDER_H

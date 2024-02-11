@@ -13,6 +13,7 @@
  **************************************************************************************/
 #include <utility>
 #include "Child.h"
+#include "Toy.h"
 using namespace std;
 namespace seneca
 {
