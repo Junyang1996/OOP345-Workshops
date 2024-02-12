@@ -4,7 +4,7 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Feb 9, 2024
+ * Completion date: Feb 11, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
@@ -28,16 +28,14 @@ namespace seneca
     {
         if (this != &co)
         {
-            // if (toys)
-            //     delete[] toys; // delete the old array
+            if (toys != nullptr)
+                delete[] toys; // delete the old array
 
-            // // create an array and copy the pointers, no need to delete because it's just simply given the length to the pointer
-            // toys = new const Toy *[co.size];
-            toys = co.toys;
             size = co.size;
+            toys = new const Toy *[size]; // create a new array
             for (size_t i = 0; i < size; ++i)
             {
-                toys[i] = co.toys[i];
+                toys[i] = co.toys[i]; // copy the pointers
             }
         }
         return *this;
@@ -50,10 +48,11 @@ namespace seneca
             // toys = new const Toy *[co.size];
             toys = co.toys;
             size = co.size;
-            for (auto i = 0u; i < size; ++i)
-            {
-                toys[i] = co.toys[i];
-            }
+            // for (auto i = 0u; i < size; ++i)
+            // {
+            //     toys[i] = co.toys[i];
+            // }
+            // delete[] co.toys;
             co.toys = nullptr;
             co.size = 0;
         }

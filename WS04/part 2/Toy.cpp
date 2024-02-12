@@ -4,7 +4,7 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Feb 9, 2024
+ * Completion date: Feb 11, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
@@ -74,8 +74,6 @@ namespace seneca
         size_t index = _str.find(dilimiter); // the id idex
         return trim(_str.substr(0, index));  // store the
     }
-    // use find to find the first :, take it as a int using stoi() stod() for double, repeat it until the end of the string
-    // size_t index = toy.find(':'); // the id idex
     Toy::Toy(const std::string &toy)
     {
         string sub_str_toy = toy;

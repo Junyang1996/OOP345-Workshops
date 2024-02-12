@@ -4,10 +4,19 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Feb 9, 2024
+ * Completion date: Feb 11, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
  * provided to complete my workshops and assignments.
  *
  **************************************************************************************/
+This week we learned the 3 different relationships among classes: composition, association and agggregation. 
+
+1. the strings library methods and functions. I tried to use only with the given 4 functions, but I couldn't remove the trailing spaces, therefore I used find_last_not_of() method to remove it. Since string is not a character array, we have to use string::npos, which meant the maximum number here, to check the end of the string, and erase all thats after the last non whitespace. 
+
+2. Child classes "owns" a toy, so the child class and toy is in aggregation relationship. So when a child object left scope, the original toy object will not be destroyed, the same applies to when we modify the original toy object, the aggregated classes will not be affected. The tricky part I found is when construct the child class, I need to go inside to each one of the array to make a copy of the individual toy. And more importantly when delete the toys a child has we need to set the individual toy to nullptr, since it's a pointer not an object. 
+
+3. ConfirmOrder "uses a" toy to make an order, therefore it is an association relationship. Confirmation order only simply refer to a toy, it does not own or has any toys itself, but pointers towards the original objects. 
+
+4. in terms of composition, we do not have a relationship in these 3 classes thats a composition, since toys, child and order can all exsit independtly, no class when they are deleted the other class will deleted in the same time with that. 

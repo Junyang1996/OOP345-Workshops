@@ -4,7 +4,7 @@
  * Student ID  :105442230
  * Course/Section: OOP244/NBB 2237
  * * Seneca Email: jwan27@myseneca.ca
- * Completion date: Feb 9, 2024
+ * Completion date: Feb 11, 2024
  *
  *
  * I have done all the coding by myself and only copied the code that my professor
@@ -98,9 +98,7 @@ namespace seneca
             // delete each copy of the element
             for (size_t i = 0; i < _count; ++i)
             {
-                // Create a new copy of each Toy element
-                // if (_toys[i] != nullptr)
-                //     delete[] _toys[i];
+                delete _toys[i];
                 _toys[i] = nullptr;
             }
         }

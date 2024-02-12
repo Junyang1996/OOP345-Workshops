@@ -3,6 +3,7 @@
     "*.py": "python",
     "iosfwd": "cpp",
     "new": "cpp",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "string": "cpp"
   }
 }
