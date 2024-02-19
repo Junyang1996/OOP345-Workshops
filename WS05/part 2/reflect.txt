@@ -1,0 +1,18 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Feb 17, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+ this week we steped into throw and catch and functor and lambda function. 
+
+ It's easy to distinguish the difference between the two, beside the structure is different, lambda function is very close to the quick arrow function we have in javascript, so it's easier to follow and understand. Whereas functor is a quick way to call a function by the form of passing an object. 
+
+ other way of notify the client about the error would be error codes we used in the last semester: cerr. However, cerr is a lot less flexible than throw and catch, because with throw and catch we can easily manipulate the output, as in line 204, i exit the collection error throw by simply leaving the for loop. 

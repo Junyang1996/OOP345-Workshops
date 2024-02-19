@@ -23,7 +23,7 @@ namespace seneca
     class SpellChecker
     {
     public:
-        static std::vector<int> cnt;
+        static int cnt[];
         static std::string m_badWords[ERROR_WORD_LIST];
         static std::string m_goodWords[ERROR_WORD_LIST];
         SpellChecker(const char *filename);

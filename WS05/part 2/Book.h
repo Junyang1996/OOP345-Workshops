@@ -28,8 +28,23 @@ namespace seneca
 
     public:
         Book() = default;
-        Book(const Book &other) = default;
-        Book &operator=(const Book &other) = default;
+        Book(const Book &other)
+        {
+            *this = other;
+        }
+        Book &operator=(const Book &other)
+        {
+            if (this != &other)
+            {
+                _author = other._author;
+                _title = other._title;
+                _country = other._country;
+                _year = other._year;
+                _price = other._price;
+                _description = other._description;
+            }
+            return *this;
+        };
         ~Book() = default;
         const std::string &title() const { return _title; }
         const std::string &country() const { return _country; }

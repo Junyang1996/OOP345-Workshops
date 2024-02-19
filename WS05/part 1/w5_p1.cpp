@@ -38,22 +38,7 @@ int main(int argc, char **argv)
 		std::string strBook;
 		// seneca::Book **library;
 		size_t cnt = 0;
-		// // get the size count
-		// do
-		// {
-		// 	std::getline(file, strBook);
-		// 	if (file)
-		// 	{
-		// 		if (strBook[0] != '#')
-		// 			++cnt;
-		// 	}
-		// } while (file);
 
-		// library = new seneca::Book *[cnt];
-		// cnt = 0;
-		// file.clear();
-		// // point it back to the beggining
-		// file.seekg(std::ios::beg);
 		do
 		{
 			std::getline(file, strBook);

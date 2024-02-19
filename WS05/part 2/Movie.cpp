@@ -17,7 +17,7 @@ namespace seneca
             _year = extract_string(temp, ',');
             // delete the string up until the first ,;
             temp.erase(0, temp.find(',') + 1);
-            _title = temp;
+            _description = trim(temp);
         }
     }
     std::ostream &operator<<(std::ostream &os, const Movie &mv)
