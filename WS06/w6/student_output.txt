@@ -1,0 +1,21 @@
+Command Line:
+--------------------------
+  1: ./ws
+  2: college_clean.txt
+--------------------------
+
+William Olver++Invalid record!
+-----------------------------------------
+ Test #1 Persons in the college!        |
+-----------------------------------------
+| EMPLOYEE   | E491910    | Sara Joseph          | 44 
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64 
+| EMPLOYEE   | E360537    | Mike John            | 54 
+-----------------------------------------
+-----------------------------------------
+ Test #2 Persons in the college!        |
+-----------------------------------------
+| EMPLOYEE   | E491910    | Sara Joseph          | 44 
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64 
+| EMPLOYEE   | E360537    | Mike John            | 54 
+-----------------------------------------
