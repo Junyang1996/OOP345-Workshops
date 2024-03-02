@@ -54,6 +54,10 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "college_clean.txt"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "college.txt"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

@@ -37,6 +37,7 @@
 		39B623B42B93087400C1B6D6 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = SOURCE_ROOT; };
 		39B623B52B93087400C1B6D6 /* w6_p1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = w6_p1.cpp; sourceTree = SOURCE_ROOT; };
 		39B623B62B93087400C1B6D6 /* sample_output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_output.txt; sourceTree = SOURCE_ROOT; };
+		39B623B82B93468200C1B6D6 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = readme.md; path = ../readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		39B623972B93081900C1B6D6 = {
 			isa = PBXGroup;
 			children = (
+				39B623B82B93468200C1B6D6 /* readme.md */,
 				39B623A22B93081900C1B6D6 /* w6 */,
 				39B623A12B93081900C1B6D6 /* Products */,
 			);
