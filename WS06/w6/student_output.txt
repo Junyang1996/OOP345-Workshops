@@ -1,21 +1,41 @@
 Command Line:
 --------------------------
   1: ./ws
-  2: college_clean.txt
+  2: college.txt
 --------------------------
 
 William Olver++Invalid record!
------------------------------------------
- Test #1 Persons in the college!        |
------------------------------------------
-| EMPLOYEE   | E491910    | Sara Joseph          | 44 
-| EMPLOYEE   | E789234    | Jackson Benjamin     | 64 
-| EMPLOYEE   | E360537    | Mike John            | 54 
------------------------------------------
------------------------------------------
- Test #2 Persons in the college!        |
------------------------------------------
-| EMPLOYEE   | E491910    | Sara Joseph          | 44 
-| EMPLOYEE   | E789234    | Jackson Benjamin     | 64 
-| EMPLOYEE   | E360537    | Mike John            | 54 
------------------------------------------
+Sophia Aiden++Invalid record! wrong age
+------------------------------------------------------------------------------------------------------------------------
+|                                        Test #1 Persons in the college!                                               |
+------------------------------------------------------------------------------------------------------------------------
+| Professor  | E491910    | Sara Joseph          | 44  | Computer Science | Professor
+| Student    | S890321    | Amelia Lucas         | 20  | VxWorks, Java, C++, Nucleus, Threadx, TDA4VM, Delphi, Scala, R
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
+| Student    | S217456    | Levi Owen            | 45  | C#, Perl, Python, Tcl/TK, Symbian, DRA829, Matlab, Rus
+| Professor  | E360537    | Mike John            | 103 | Electrical Engineering | Professor
+------------------------------------------------------------------------------------------------------------------------
+|                                        Test #2 Persons in the college!                                               |
+------------------------------------------------------------------------------------------------------------------------
+| Professor  | E491910    | Sara Joseph          | 44  | 
+| Student    | S890321    | Amelia Lucas         | 20  | 
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
+| Student    | S217456    | Levi Owen            | 45  | 
+| Professor  | E360537    | Mike John            | 103 | 
+------------------------------------------------------------------------------------------------------------------------
+|                                        Test #3 Students in the college!                                              |
+------------------------------------------------------------------------------------------------------------------------
+| Professor  | E491910    | Sara Joseph          | 44  | Computer Science | Professor
+| Student    | S890321    | Amelia Lucas         | 20  | VxWorks, Java, C++, Nucleus, Threadx, TDA4VM, Delphi, Scala, R
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
+| Student    | S217456    | Levi Owen            | 45  | C#, Perl, Python, Tcl/TK, Symbian, DRA829, Matlab, Rus
+| Professor  | E360537    | Mike John            | 103 | Electrical Engineering | Professor
+------------------------------------------------------------------------------------------------------------------------
+|                                        Test #4 Professors in the college!                                            |
+------------------------------------------------------------------------------------------------------------------------
+| Professor  | E491910    | Sara Joseph          | 44  | Computer Science | Professor
+| Student    | S890321    | Amelia Lucas         | 20  | VxWorks, Java, C++, Nucleus, Threadx, TDA4VM, Delphi, Scala, R
+| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
+| Student    | S217456    | Levi Owen            | 45  | C#, Perl, Python, Tcl/TK, Symbian, DRA829, Matlab, Rus
+| Professor  | E360537    | Mike John            | 103 | Electrical Engineering | Professor
+------------------------------------------------------------------------------------------------------------------------

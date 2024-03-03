@@ -1,29 +1,38 @@
 #include <string>
+#include "Student.h"
+#include "Person.h"
+#include "Professor.h"
 #include "Utilities.h"
 using namespace std;
 namespace seneca
 {
     Person *buildInstance(std::istream &in)
     {
+        Person *person = nullptr;
 
         std::string line;
         if (!std::getline(in, line))
         {
+            // early exit if there's no line to read
             return nullptr;
         }
 
-         std::stringstream strings(line);
+        std::stringstream strings(line);
 
-        if (!line.starts_with('e') && !line.starts_with('E'))
+        if (line.starts_with('e') || line.starts_with('E'))
         {
-            return nullptr;
+            person = new Employee(strings);
         }
-        else
+        else if (line.starts_with('s') || line.starts_with('S'))
         {
-            Person *person = new Employee(strings);
+            person = new Student(strings);
+        }
+        else if (line.starts_with('p') || line.starts_with('P'))
+        {
+            person = new Professor(strings);
+        }
 
-            return person;
-        }
+        return person;
     }
     string trim(const string &str)
     {

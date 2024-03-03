@@ -13,7 +13,7 @@ namespace seneca
         // store the input into temp
         getline(is, temp, ',');
         // we don't need to store tag
-//        trim(temp);
+        //        trim(temp);
         // temp.erase(0, temp.find(',') + 1);
         // we don't need to store tag
         getline(is, temp, ',');
@@ -35,7 +35,7 @@ namespace seneca
             string answer = m_name + "++Invalid record!";
             throw answer;
         }
-        temp.erase(0, temp.find(',') + 1);
+
         // get the id, if it start with E, it's valid otherwise throw error
         if (temp[0] != 'e' && temp[0] != 'E')
         {
@@ -43,12 +43,12 @@ namespace seneca
         }
         else
         {
-            m_id = extract_string(temp, '\n');
+            m_id = extract_string(temp, ',');
         }
     }
     void Employee::display(std::ostream &out) const
     {
-        out << "| " << left << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age();
+        out << "| " << left << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " | ";
     }
 
 }

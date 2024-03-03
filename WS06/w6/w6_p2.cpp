@@ -8,7 +8,7 @@
 
 int cout = 0; // won't compile if headers don't follow convention regarding namespaces
 
-void loadData(const char* filename, seneca::College& theCollege)
+void loadData(const char *filename, seneca::College &theCollege)
 {
 	std::ifstream file(filename);
 	if (!file)
@@ -16,20 +16,26 @@ void loadData(const char* filename, seneca::College& theCollege)
 		std::cout << "ERROR: Cannot open file [" << filename << "].\n";
 		return;
 	}
-	seneca::Person* thePerson = nullptr;
+	seneca::Person *thePerson = nullptr;
 	while (file)
 	{
-		// TODO: This code can throw errors to signal that something 
+		// TODO: This code can throw errors to signal that something
 		//         went wrong while extracting data. Write code to catch
 		//         and handle the exceptions:
-		thePerson = seneca::buildInstance(file);
-		if (thePerson)
-			theCollege += thePerson;
+		try
+		{
+			thePerson = seneca::buildInstance(file);
+			if (thePerson)
+				theCollege += thePerson;
+		}
+		catch (const std::string e)
+		{
+			std::cout << e << std::endl;
+		}
 	}
 }
 
-
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -41,13 +47,18 @@ int main(int argc, char** argv)
 	::loadData(argv[1], theCollege);
 	theCollege.display(std::cout);
 
-	std::list<const seneca::Person*> persons;
+	std::list<const seneca::Person *> persons;
 	{
 		// TODO: Create a lambda expression that receives as parameter `const seneca::Person*`
 		//         and returns true if the person is student.
-		auto students = ...;
+		auto students = [](const seneca::Person *p)
+		{
+			if (p->status() == "Student")
+				return true;
+			return false;
+		};
 		theCollege.select(students, persons);
-	
+
 		std::cout << "|                                        Test #3 Students in the college!                                              |\n";
 		std::cout << "------------------------------------------------------------------------------------------------------------------------\n";
 		for (auto it = persons.begin(); it != persons.end(); ++it)
@@ -62,11 +73,16 @@ int main(int argc, char** argv)
 	{
 		// TODO: Create a lambda expression that receives as parameter `const seneca::Person*`
 		//         and returns true if the person is professor.
-		auto professors = ... ;
+		auto professors = [](const seneca::Person *p)
+		{
+			if (p->status() == "Professor")
+				return true;
+			return false;
+		};
 		theCollege.select(professors, persons);
-	
+
 		std::cout << "|                                        Test #4 Professors in the college!                                            |\n";
-		std::cout << "------------------------------------------------------------------------------------------------------------------------\n";		
+		std::cout << "------------------------------------------------------------------------------------------------------------------------\n";
 		for (const auto person : persons)
 		{
 			person->display(std::cout);

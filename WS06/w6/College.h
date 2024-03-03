@@ -15,7 +15,18 @@ namespace seneca
         College &operator+=(Person *thePerson);
         void display(std::ostream &out) const;
         template <typename T>
-        void select(const T &test, std::list<const Person *> &persons);
+        void select(const T &test, std::list<const Person *> &persons)
+        {
+            std::vector<Person *>::const_iterator it;
+            // go over each person in m_persons
+            for (it = m_persons.begin(); it != m_persons.end(); it++)
+            {
+                if (test)
+                {
+                    persons.push_back(*it);
+                }
+            }
+        };
     };
 
 }

@@ -10,7 +10,9 @@
 		39B623AF2B93086C00C1B6D6 /* College.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B623AA2B93086C00C1B6D6 /* College.cpp */; };
 		39B623B02B93086C00C1B6D6 /* Utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B623AD2B93086C00C1B6D6 /* Utilities.cpp */; };
 		39B623B12B93086C00C1B6D6 /* Employee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B623AE2B93086C00C1B6D6 /* Employee.cpp */; };
-		39B623B72B93087400C1B6D6 /* w6_p1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39B623B52B93087400C1B6D6 /* w6_p1.cpp */; };
+		39C5572B2B94515700A9380D /* Professor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39C557292B94515700A9380D /* Professor.cpp */; };
+		39C5572E2B94516000A9380D /* Student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39C5572C2B94516000A9380D /* Student.cpp */; };
+		39C557312B94517200A9380D /* w6_p2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39C557302B94517200A9380D /* w6_p2.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,12 +34,16 @@
 		39B623AC2B93086C00C1B6D6 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = SOURCE_ROOT; };
 		39B623AD2B93086C00C1B6D6 /* Utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utilities.cpp; sourceTree = SOURCE_ROOT; };
 		39B623AE2B93086C00C1B6D6 /* Employee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Employee.cpp; sourceTree = SOURCE_ROOT; };
-		39B623B22B93087400C1B6D6 /* college_clean.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college_clean.txt; sourceTree = SOURCE_ROOT; };
 		39B623B32B93087400C1B6D6 /* College.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = College.h; sourceTree = SOURCE_ROOT; };
 		39B623B42B93087400C1B6D6 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = SOURCE_ROOT; };
-		39B623B52B93087400C1B6D6 /* w6_p1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = w6_p1.cpp; sourceTree = SOURCE_ROOT; };
 		39B623B62B93087400C1B6D6 /* sample_output.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample_output.txt; sourceTree = SOURCE_ROOT; };
 		39B623B82B93468200C1B6D6 /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = readme.md; path = ../readme.md; sourceTree = "<group>"; };
+		39C557292B94515700A9380D /* Professor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Professor.cpp; sourceTree = SOURCE_ROOT; };
+		39C5572A2B94515700A9380D /* Professor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Professor.h; sourceTree = SOURCE_ROOT; };
+		39C5572C2B94516000A9380D /* Student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Student.cpp; sourceTree = SOURCE_ROOT; };
+		39C5572D2B94516000A9380D /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = SOURCE_ROOT; };
+		39C5572F2B94516A00A9380D /* college.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = college.txt; sourceTree = SOURCE_ROOT; };
+		39C557302B94517200A9380D /* w6_p2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = w6_p2.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,11 +77,15 @@
 		39B623A22B93081900C1B6D6 /* w6 */ = {
 			isa = PBXGroup;
 			children = (
-				39B623B22B93087400C1B6D6 /* college_clean.txt */,
+				39C557302B94517200A9380D /* w6_p2.cpp */,
+				39C5572F2B94516A00A9380D /* college.txt */,
+				39C5572C2B94516000A9380D /* Student.cpp */,
+				39C5572D2B94516000A9380D /* Student.h */,
+				39C557292B94515700A9380D /* Professor.cpp */,
+				39C5572A2B94515700A9380D /* Professor.h */,
 				39B623B32B93087400C1B6D6 /* College.h */,
 				39B623B42B93087400C1B6D6 /* Person.h */,
 				39B623B62B93087400C1B6D6 /* sample_output.txt */,
-				39B623B52B93087400C1B6D6 /* w6_p1.cpp */,
 				39B623AA2B93086C00C1B6D6 /* College.cpp */,
 				39B623AE2B93086C00C1B6D6 /* Employee.cpp */,
 				39B623AC2B93086C00C1B6D6 /* Employee.h */,
@@ -142,10 +152,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C557312B94517200A9380D /* w6_p2.cpp in Sources */,
 				39B623B02B93086C00C1B6D6 /* Utilities.cpp in Sources */,
+				39C5572B2B94515700A9380D /* Professor.cpp in Sources */,
 				39B623AF2B93086C00C1B6D6 /* College.cpp in Sources */,
+				39C5572E2B94516000A9380D /* Student.cpp in Sources */,
 				39B623B12B93086C00C1B6D6 /* Employee.cpp in Sources */,
-				39B623B72B93087400C1B6D6 /* w6_p1.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,8 @@ namespace seneca
     public:
         Professor(std::istream &in);
         void display(std::ostream &out) const;
-        std::string status() const;
-        std::string department() const;
+        std::string status() const { return "Professor"; }
+        std::string department() const { return m_department; }
     };
 }
 #endif //! PROFESSOR_H
