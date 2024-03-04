@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 	{
 		// TODO: Create a lambda expression that receives as parameter `const seneca::Person*`
 		//         and returns true if the person is student.
-		auto students = [](const seneca::Person *p)
+		auto students = [=](const seneca::Person *p)
 		{
 			if (p->status() == "Student")
 				return true;
@@ -73,7 +73,7 @@ int main(int argc, char **argv)
 	{
 		// TODO: Create a lambda expression that receives as parameter `const seneca::Person*`
 		//         and returns true if the person is professor.
-		auto professors = [](const seneca::Person *p)
+		auto professors = [=](const seneca::Person *p)
 		{
 			if (p->status() == "Professor")
 				return true;

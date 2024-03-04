@@ -64,7 +64,7 @@ namespace seneca
         //     m_count = std::stoi(trim(temp));
 
         m_courses = new string[m_count];
-        for (auto i = 0u; i < m_count; i++)
+        for (auto i = 0u; i < m_count; ++i)
         {
             if (i != (m_count - 1))
             {
@@ -73,14 +73,14 @@ namespace seneca
             }
             else
             {
-                getline(is, temp, '\n');
+                getline(is, temp, '\0');
                 m_courses[i] = trim(temp);
             }
         }
     }
     void Student::display(std::ostream &out) const
     {
-        out << "| " << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " | ";
+        out << "| " << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " |";
         for (auto i = 0u; i < m_count; i++)
         {
             out << m_courses[i];
@@ -90,7 +90,8 @@ namespace seneca
     }
     Student::~Student()
     {
-        delete m_courses;
+        if (m_courses != nullptr)
+            delete[] m_courses;
         m_courses = nullptr;
         m_count = 0;
     }

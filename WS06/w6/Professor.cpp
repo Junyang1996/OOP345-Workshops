@@ -13,6 +13,6 @@ namespace seneca
     void Professor::display(std::ostream &out) const
     {
         Employee::display(out);
-        out <<m_department<<" | "<< status();
+        out << m_department << "|" << status();
     }
 }

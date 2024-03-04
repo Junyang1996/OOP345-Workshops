@@ -21,7 +21,7 @@ namespace seneca
             // go over each person in m_persons
             for (it = m_persons.begin(); it != m_persons.end(); it++)
             {
-                if (test)
+                if (test((*it)))
                 {
                     persons.push_back(*it);
                 }

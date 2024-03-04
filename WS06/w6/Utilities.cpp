@@ -42,7 +42,7 @@ namespace seneca
         // Erase leading whitespace characters
         output.erase(0, firstNonWhitespace);
         // Find the index of the last non-whitespace character
-        size_t lastNonWhitespace = output.find_last_not_of(" \\t");
+        size_t lastNonWhitespace = output.find_last_not_of(" ");
         // Erase trailing whitespace characters
         if (lastNonWhitespace != string::npos)
             output.erase(lastNonWhitespace + 1);

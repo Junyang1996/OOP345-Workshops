@@ -25,17 +25,11 @@ Sophia Aiden++Invalid record! wrong age
 ------------------------------------------------------------------------------------------------------------------------
 |                                        Test #3 Students in the college!                                              |
 ------------------------------------------------------------------------------------------------------------------------
-| Professor  | E491910    | Sara Joseph          | 44  | Computer Science | Professor
 | Student    | S890321    | Amelia Lucas         | 20  | VxWorks, Java, C++, Nucleus, Threadx, TDA4VM, Delphi, Scala, R
-| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
 | Student    | S217456    | Levi Owen            | 45  | C#, Perl, Python, Tcl/TK, Symbian, DRA829, Matlab, Rus
-| Professor  | E360537    | Mike John            | 103 | Electrical Engineering | Professor
 ------------------------------------------------------------------------------------------------------------------------
 |                                        Test #4 Professors in the college!                                            |
 ------------------------------------------------------------------------------------------------------------------------
 | Professor  | E491910    | Sara Joseph          | 44  | Computer Science | Professor
-| Student    | S890321    | Amelia Lucas         | 20  | VxWorks, Java, C++, Nucleus, Threadx, TDA4VM, Delphi, Scala, R
-| EMPLOYEE   | E789234    | Jackson Benjamin     | 64  | 
-| Student    | S217456    | Levi Owen            | 45  | C#, Perl, Python, Tcl/TK, Symbian, DRA829, Matlab, Rus
 | Professor  | E360537    | Mike John            | 103 | Electrical Engineering | Professor
 ------------------------------------------------------------------------------------------------------------------------

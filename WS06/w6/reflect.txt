@@ -1,0 +1,4 @@
+the reason we have to deallocate vector is because we have to deallocate what it's contained. Vector is different from array is becasue it's a dynamic allocated, compare to array is fixed size, so with array we need to deallocate to free the allocated memory space compare to vector is automatically managed. 
+
+I believe throw and catch would be the best practice for different kind of errors that might happen with input file. Another approach I would do would be to do a if statement check for error, compare to throw and catch, it's less efficient and a lot difficult to maintain. 
+

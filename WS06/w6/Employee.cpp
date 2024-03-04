@@ -48,7 +48,7 @@ namespace seneca
     }
     void Employee::display(std::ostream &out) const
     {
-        out << "| " << left << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " | ";
+        out << "| " << left << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " |";
     }
 
 }
