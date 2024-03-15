@@ -9,6 +9,7 @@ namespace seneca
         std::vector<Person *> m_persons{};
 
     public:
+        ~College();
         College &operator=(College &) = delete;
         College &operator+=(Person *thePerson);
         void display(std::ostream &out) const;

@@ -12,7 +12,7 @@ namespace seneca
             return nullptr;
         }
 
-        std::stringstream strings(line);
+         std::stringstream strings(line);
 
         if (!line.starts_with('e') && !line.starts_with('E'))
         {
@@ -20,7 +20,7 @@ namespace seneca
         }
         else
         {
-            Person *person = new Employee(in);
+            Person *person = new Employee(strings);
 
             return person;
         }

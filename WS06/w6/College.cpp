@@ -1,3 +1,16 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 7, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <vector>
 #include <iomanip>
 #include "Person.h"
@@ -34,7 +47,7 @@ namespace seneca
                "------------------------------------------------------------------------------------------------------------------------\n";
         for (it = m_persons.begin(); it != m_persons.end(); it++)
         {
-            out << "| " << left << setw(10) << (*it)->status() << " | " << setw(10) << (*it)->id() << " | " << setw(20) << (*it)->name() << " | " << setw(3) << (*it)->age() << " |" << endl;
+            out << "| " << left << setw(10) << (*it)->status() << "| " << setw(10) << (*it)->id() << "| " << setw(20) << (*it)->name() << " | " << setw(3) << (*it)->age() << " |" << endl;
         }
         out << "------------------------------------------------------------------------------------------------------------------------\n";
     }

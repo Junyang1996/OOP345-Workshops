@@ -11,14 +11,20 @@ namespace seneca
     {
         string temp{};
         // store the input into temp
-        is >> temp;
+        getline(is, temp, ',');
         // we don't need to store tag
-        extract_string(temp, ',');
-        temp.erase(0, temp.find(',') + 1);
+//        trim(temp);
+        // temp.erase(0, temp.find(',') + 1);
+        // we don't need to store tag
+        getline(is, temp, ',');
         m_name = extract_string(temp, ',');
-        temp.erase(0, temp.find(',') + 1);
+        // temp.erase(0, temp.find(',') + 1);
         // get the age, if it's not a number throw error
+        getline(is, temp, ',');
         m_age = extract_string(temp, ',');
+
+        getline(is, temp, ',');
+        temp = extract_string(temp, '\n');
         try
         {
             // stoi will throw an error as std::invalid_argument &, so its better to do try and catch instead of if throw

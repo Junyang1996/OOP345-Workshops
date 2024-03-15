@@ -3,23 +3,24 @@
 #include <string>
 #include <list>
 #include "SongCollection.h"
-#include "SongCollection.h"     // intentional
+#include "SongCollection.h" // intentional
 
 int cout = 0; // won't compile if headers don't follow convention regarding namespaces
 
-void printbar(std::ostream& out = std::cout)
+void printbar(std::ostream &out = std::cout)
 {
-	out << std::setw(89) << std::setfill('-') << '\n' << std::setfill(' ');
+	out << std::setw(89) << std::setfill('-') << '\n'
+		<< std::setfill(' ');
 }
 
-void printHeader(const char* title, std::ostream& out = std::cout)
+void printHeader(const char *title, std::ostream &out = std::cout)
 {
 	printbar(out);
 	out << "| " << std::left << std::setw(85) << title << std::right << "|\n";
 	printbar(out);
 }
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
 	std::cout << "Command Line:\n";
 	std::cout << "--------------------------\n";
@@ -32,7 +33,7 @@ int main(int argc, char** argv)
 	printHeader("The original collection");
 	theCollection.display(std::cout);
 	printbar();
-	
+
 	printHeader("The collection sorted by title");
 	theCollection.sort("title");
 	theCollection.display(std::cout);
@@ -56,21 +57,21 @@ int main(int argc, char** argv)
 		else
 			std::cout << "There are no songs of \"The Beatles\" in collection.\n";
 	}
-
-	{
-		// look for Sia; increase the price of each song by 5 cents
-		if (theCollection.inCollection("Sia"))
-		{
-			printHeader("Songs of \"Sia\"");
-			auto sia = theCollection.getSongsForArtist("Sia");
-			for (auto& song : sia)
-			{
-				std::cout << song << "\n";
-				song.m_price += 10;
-			}
-			printbar();
-		}
-	}
 	
+		{
+			// look for Sia; increase the price of each song by 5 cents
+			if (theCollection.inCollection("Sia"))
+			{
+				printHeader("Songs of \"Sia\"");
+				auto sia = theCollection.getSongsForArtist("Sia");
+				for (auto& song : sia)
+				{
+					std::cout << song << "\n";
+					song.m_price += 10;
+				}
+				printbar();
+			}
+		}
+
 	return cout;
 }

@@ -1,4 +1,20 @@
-the reason we have to deallocate vector is because we have to deallocate what it's contained. Vector is different from array is becasue it's a dynamic allocated, compare to array is fixed size, so with array we need to deallocate to free the allocated memory space compare to vector is automatically managed. 
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 7, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 
-I believe throw and catch would be the best practice for different kind of errors that might happen with input file. Another approach I would do would be to do a if statement check for error, compare to throw and catch, it's less efficient and a lot difficult to maintain. 
 
+the reason we have to deallocate vector is because we have to deallocate what it's contained. Vector is different from array is becasue it's a dynamic allocated, compare to array is fixed size, so with array we need to deallocate to free the allocated memory space compare to vector is automatically deallocated upon going out of scope. 
+
+I believe throw and catch would be the best practice for different kind of errors that might happen with input file. Another approach I would do would be to do a if statement or a error code check for error, compare to throw and catch, it's less efficient and a lot difficult to maintain. 
+
+We cannot store it by value, because vector and list are storing the object in a sequence, so if it's only by value, Person object is only a virtual class, so the object would be sliced with the person part and the college or student part. Moreover, if it's stored by address, if the original value changed, the value stored as a value won't reflect the change. Also, there are performance issue with storing in value, since we need to make a copy of the object instead of pointing to the original address. 

@@ -1,3 +1,16 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 7, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -28,14 +41,14 @@ namespace seneca
         }
         catch (std::invalid_argument &)
         {
-            string answer = m_name + "++Invalid record! wrong age";
+            string answer = m_name + "++Invalid record!";
             throw answer;
         }
         getline(is, temp, ',');
         temp = trim(temp);
         if (temp[0] != 's' && temp[0] != 'S')
         {
-            throw m_name + "++Invalid record! invalid id";
+            throw m_name + "++Invalid record!";
         }
         else
         {
@@ -58,7 +71,7 @@ namespace seneca
         }
         catch (std::invalid_argument &)
         {
-            throw m_name + "++Invalid record! invalid count";
+            throw m_name + "++Invalid record!";
         }
         // if (std::stoi(trim(temp)))
         //     m_count = std::stoi(trim(temp));
@@ -80,7 +93,7 @@ namespace seneca
     }
     void Student::display(std::ostream &out) const
     {
-        out << "| " << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " |";
+        out << "| " << setw(10) << status() << "| " << setw(10) << id() << "| " << setw(20) << name() << " | " << setw(3) << age() << " |";
         for (auto i = 0u; i < m_count; i++)
         {
             out << m_courses[i];

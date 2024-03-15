@@ -1,3 +1,17 @@
+
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 7, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <string>
 #include "Student.h"
 #include "Person.h"
@@ -13,21 +27,21 @@ namespace seneca
         std::string line;
         if (!std::getline(in, line))
         {
-            // early exit if there's no line to read
+            // early exit if there"s no line to read
             return nullptr;
         }
 
         std::stringstream strings(line);
 
-        if (line.starts_with('e') || line.starts_with('E'))
+        if (line.substr(0, 1) == "e" || line.substr(0, 1) == "E")
         {
             person = new Employee(strings);
         }
-        else if (line.starts_with('s') || line.starts_with('S'))
+        else if (line.substr(0, 1) == "s" || line.substr(0, 1) == "S")
         {
             person = new Student(strings);
         }
-        else if (line.starts_with('p') || line.starts_with('P'))
+        else if (line.substr(0, 1) == "p" || line.substr(0, 1) == "P")
         {
             person = new Professor(strings);
         }
@@ -38,7 +52,7 @@ namespace seneca
     {
         string output = str;
         // Find the index of the first non-whitespace character
-        size_t firstNonWhitespace = output.find_first_not_of(" \\t");
+        size_t firstNonWhitespace = output.find_first_not_of(' ');
         // Erase leading whitespace characters
         output.erase(0, firstNonWhitespace);
         // Find the index of the last non-whitespace character

@@ -5,6 +5,12 @@
 using namespace std;
 namespace seneca
 {
+    College::~College()
+    {
+        for (Person *person : m_persons)
+            delete person;
+        m_persons.clear();
+    }
     College &College::operator+=(Person *thePerson)
     {
         m_persons.push_back(thePerson);

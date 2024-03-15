@@ -1,3 +1,16 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 7, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -48,7 +61,8 @@ namespace seneca
     }
     void Employee::display(std::ostream &out) const
     {
-        out << "| " << left << setw(10) << status() << " | " << setw(10) << id() << " | " << setw(20) << name() << " | " << setw(3) << age() << " |";
+        out << "| " << left << setw(10) << "Employee"
+            << "| " << setw(10) << id() << "| " << setw(20) << name() << " | " << setw(3) << age() << " |";
     }
 
 }
