@@ -1,3 +1,17 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 23, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+
 #ifndef SENECA_ELEMENT_H
 #define SENECA_ELEMENT_H
 
@@ -9,38 +23,46 @@ extern const int FWC;
 extern const int FWD;
 extern const int FWP;
 
-namespace seneca {
+namespace seneca
+{
 
-	struct Description {
+	struct Description
+	{
 		unsigned code;
 		std::string desc;
-		bool load(std::ifstream& f) {
+		bool load(std::ifstream &f)
+		{
 			f >> code >> desc;
 			return f.good();
 		}
 
-		void display(std::ostream& os) const {
+		void display(std::ostream &os) const
+		{
 			os << std::setw(FWC) << code
 			   << std::setw(FWD) << desc
 			   << std::endl;
 		}
 	};
 
-	struct Price {
+	struct Price
+	{
 		unsigned code;
 		double price;
-		bool load(std::ifstream& f) {
+		bool load(std::ifstream &f)
+		{
 			f >> code >> price;
 			return f.good();
 		}
 
-		void display(std::ostream& os) const {
+		void display(std::ostream &os) const
+		{
 			os << std::setw(FWC) << code << std::setw(FWP)
 			   << price << std::endl;
 		}
 	};
 
-	struct Product {
+	struct Product
+	{
 		std::string m_desc{};
 		double m_price{};
 		int m_id{};
@@ -49,13 +71,15 @@ namespace seneca {
 		//     constructors/destructor
 		static bool Trace;
 
-		Product() {
+		Product()
+		{
 			m_id = ++Product::idGenerator;
 			if (Product::Trace)
 				std::cout << "    DC [" << m_id << "]" << std::endl;
 		}
 
-		Product(const std::string& str, double p) {
+		Product(const std::string &str, double p)
+		{
 			this->m_desc = str;
 			this->m_price = p;
 			m_id = ++Product::idGenerator;
@@ -63,28 +87,32 @@ namespace seneca {
 				std::cout << "     C [" << m_id << "]" << std::endl;
 		}
 
-		Product(const Product& other) {
+		Product(const Product &other)
+		{
 			this->m_desc = other.m_desc;
 			this->m_price = other.m_price;
 			m_id = ++Product::idGenerator;
 			if (Product::Trace)
 				std::cout << "    CC [" << m_id
-					      << "] from [" << other.m_id << "]"
-					      << std::endl;
+						  << "] from [" << other.m_id << "]"
+						  << std::endl;
 		}
 
-		~Product() {
+		~Product()
+		{
 			if (Product::Trace)
 				std::cout << "    ~D [" << m_id << "]" << std::endl;
 		}
 
 		// TODO: add a function here to validate the price
+		void validate()
+		{
+			if (m_price < 0)
+				throw std::string("*** Negative prices are invalid ***");
+		}
 
-
-
-
-
-		void display(std::ostream& os) const {
+		void display(std::ostream &os) const
+		{
 			os << std::setw(FWD) << m_desc
 			   << std::setw(FWP) << m_price
 			   << std::endl;

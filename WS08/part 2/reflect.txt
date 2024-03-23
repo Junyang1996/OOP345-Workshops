@@ -1,0 +1,18 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 23, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+The primary advantage between raw pointer and smart pointer is smart pointer deallocate the memory location for us automatically, therefore avoided memory leak.
+
+ In my solution, I used unique pointer instead of shared pointer, because we do not want any other program to have ownership of the object, only one ownership at the time, therefore enhanced code security. However, in order to achieve that, I will have to transfer the ownership, in other word, move the ownership from one to another, in this case, it's the += operator and also merge smart pointer function. However, another problem is we cannot use the += temp anymore, because it's still techinically making a copy, therefore we have to wrap the temporary product with std::move. 
+
+ Beside above, the other difference between the merge smart and merge raw is merge smart no longer needs to delete the temporary value manually, it's handled for me, so even it encouters the error that throw an exception, the value would still be deallocated safely, so to avoid memory leak. 
