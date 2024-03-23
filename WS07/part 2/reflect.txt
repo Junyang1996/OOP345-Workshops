@@ -1,0 +1,31 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 15, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
+ I used the following STL functions:
+ find_first_not_of(' ') and  find_last_not_of(' '): it's the easiest way to remove white spaces. 
+
+for_each(): it is the best way to loop each object, beside using any manual loops while can call the << operator.  
+
+ accumulate(...): if we want one sum of a collection, accumulate is the best option, since it returns an value, and it's more readable.
+
+ sort(...) and less: since we want to have asc order, we use less here, by using sort, it's more readable and less code therefore better maintainability and less likely to make mistake. 
+
+ transform(...): it clearly shows the starts, the end, the operation and also the place to insert the object, in my function, i used it to replace the original vector object, which is the begining of the object itself. 
+
+ any_of(...): just like find_first_not_of, it's more precis and also more efficient, because it also stops when it encounters the first occurrence of the object it needs to find.
+
+ copy_if(...): similar to transform, it gives the location to store, which makes it more readable than manual loops.
+
+In summary, the STL functions are generally more readable, easier to maintain and less likely to have mistakes, than using manual loops.  In my expierience, many errors occurs when we try to loop out of range, using STL functions, we using object inside the collection instead of iteration, therefore the out of bound error is avoid.
+
+To prevent user error, i have an else part at the end of if else loop to catch all the other cases other than the expected ones and throw an error if it's not what's expected. 

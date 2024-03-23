@@ -1,3 +1,16 @@
+/*************************************************************************************
+ *
+ * Student Name : Lawrence Wan
+ * Student ID  :105442230
+ * Course/Section: OOP244/NBB 2237
+ * * Seneca Email: jwan27@myseneca.ca
+ * Completion date: Mar 15, 2024
+ *
+ *
+ * I have done all the coding by myself and only copied the code that my professor
+ * provided to complete my workshops and assignments.
+ *
+ **************************************************************************************/
 #include <fstream>
 #include <iostream>
 #include <iomanip>
@@ -71,13 +84,15 @@ namespace seneca
     {
 
         // Use std::copy to copy elements of obj to the output stream using outputIterator
-        std::copy(obj.begin(), obj.end(), std::ostream_iterator<Song>(out, "\n"));
+        // std::copy(obj.begin(), obj.end(), std::ostream_iterator<Song>(out, "\n"));
+        for_each(obj.begin(), obj.end(), [&out](const Song &a)
+                 { out << a << endl; });
 
         // the value starts with 0, accumulate all the length into sum
         int totalLength = accumulate(obj.begin(), obj.end(), 0, [](int sum, const Song &song)
                                      { return sum + song.lengthSong; });
         out << "----------------------------------------------------------------------------------------" << endl;
-        out << "| " << setfill(' ') << right << setw(77) << "Total Listening Time:" << totalLength / 3600 << ':' << (totalLength % 3600) / 60 << ':' << totalLength % 60 << " |\n";
+        out << "| " << setfill(' ') << right << setw(77) << "Total Listening Time: " << totalLength / 3600 << ":" << (totalLength % 3600) / 60 << ':' << totalLength % 60 << " |\n";
     }
 
     std::ostream &operator<<(std::ostream &out, const Song &theSong)
@@ -87,29 +102,36 @@ namespace seneca
     }
     void SongCollection::sort(const std::string sortBy)
     {
-        if (sortBy == "title")
+        try
         {
-            std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
-                      { return std::less<std::string>()(a.title, b.title); });
+            if (sortBy == "title")
+            {
+                std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
+                          { return std::less<std::string>()(a.title, b.title); });
+            }
+            else if (sortBy == "album")
+            {
+                std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
+                          { return std::less<std::string>()(a.album, b.album); });
+            }
+            else if (sortBy == "length")
+            {
+                std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
+                          { return std::less<int>()(a.lengthSong, b.lengthSong); });
+            }
+            else
+            {
+                throw std::invalid_argument("wrong input.");
+            }
         }
-        else if (sortBy == "album")
+        catch (const std::invalid_argument& e)
         {
-            std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
-                      { return std::less<std::string>()(a.album, b.album); });
-        }
-        else if (sortBy == "length")
-        {
-            std::sort(obj.begin(), obj.end(), [](const Song &a, const Song &b)
-                      { return std::less<int>()(a.lengthSong, b.lengthSong); });
-        }
-        else
-        {
-            throw std::invalid_argument("wrong input.");
+            cout <<endl<< e.what() << endl;
         }
     }
     void SongCollection::cleanAlbum()
     {
-        transform(obj.begin(), obj.end(), obj.begin(), [](Song a)
+        transform(obj.begin(), obj.end(), obj.begin(), [](Song &a)
                   {
             if(a.album=="[None]")
                 {a.album=""; }
@@ -126,8 +148,12 @@ namespace seneca
     }
     std::list<Song> SongCollection::getSongsForArtist(const std::string p_artist) const
     {
-        list<Song> list{};
-        copy_if(obj.begin(), obj.end(), back_inserter(list), [p_artist](Song a)
+
+        // find out how many sia is there, make the list accordingly
+        size_t size = count_if(obj.begin(), obj.end(), [p_artist](const Song &a)
+                               { return a.artist == p_artist; });
+        list<Song> list(size);
+        copy_if(obj.begin(), obj.end(), list.begin(), [p_artist](const Song &a)
                 { return a.artist == p_artist; });
         return list;
     }

@@ -57,21 +57,21 @@ int main(int argc, char **argv)
 		else
 			std::cout << "There are no songs of \"The Beatles\" in collection.\n";
 	}
-	
+
+	{
+		// look for Sia; increase the price of each song by 5 cents
+		if (theCollection.inCollection("Sia"))
 		{
-			// look for Sia; increase the price of each song by 5 cents
-			if (theCollection.inCollection("Sia"))
+			printHeader("Songs of \"Sia\"");
+			auto sia = theCollection.getSongsForArtist("Sia");
+			for (auto &song : sia)
 			{
-				printHeader("Songs of \"Sia\"");
-				auto sia = theCollection.getSongsForArtist("Sia");
-				for (auto& song : sia)
-				{
-					std::cout << song << "\n";
-					song.m_price += 10;
-				}
-				printbar();
+				std::cout << song << "\n";
+				song.m_price += 10;
 			}
+			printbar();
 		}
+	}
 
 	return cout;
 }
