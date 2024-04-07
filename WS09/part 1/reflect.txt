@@ -1,0 +1,17 @@
+// Name: Lawrence Wan
+// Seneca Student ID: 105442230
+// Seneca email:jwan27@myseneca.ca
+// Date of completion: March 31, 2024
+//
+// I confirm that I am the only author of this file
+//   and the content was created entirely by me.
+
+
+This week we studied threads and binary files.
+We need to enscribe and translate the binary file into the actual data type, like characters andd numbers. And since the binary does not know string type, we have to transate it into strings. 
+
+Its important to bind a function to it's arguments because in the case of findTreasure, the treasure mark is constant, we do not need to waste any more space for this argument, but bind them together, and only take the variables.
+
+I accomplished multi-threading by first divide the whole map into 4 threads, initiate the containers to hold the tasks, and future/returns from the tasks and the threads themselves. After that, I distributed the tasks into the threads, join the threads together, and then get all the future/return at once. The performance of multithreads is a lot desirable than the regular approach. 
+
+Since I didn't allocate threads for each little tasks in our program, we have to encapsulate some tasks together, and thats where packaged_tasks come in handy. Future is their returns, we collected them together at last, once every threads are done with their processing. 
